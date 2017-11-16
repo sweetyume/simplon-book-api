@@ -28,7 +28,20 @@ router.get('/books', (req, res) => {
         }
         res.json(books);
     });
-})
+});
+
+// GET
+// Voir un livre par son id
+// route 'localhost:${config.port}/simplonBook/books/:id'
+router.get('/books/:id', (req, res) => {
+    Book.findById( req.params.id, (err, book) => {
+        if (err) {
+            res.send(err);
+        }
+        res.json(book);
+    })
+});
+
 
 
 
