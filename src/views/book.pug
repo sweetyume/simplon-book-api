@@ -1,0 +1,29 @@
+extends layout
+block content
+  div.container
+    div.row
+      div.col-xs-12
+        div.product-header
+          div.product-image
+            img(src=book.image)
+          div.product-body
+            h1 #{ book.titre }
+            span #{ book.auteur }
+          div.product-created
+            span #{ book.annee_de_publication }
+          div.product-created
+            span #{ book.pages }
+          div.product-created
+            span #{ book.date_de_creation }
+        div.product-controls-wrapper
+          ul.product-controls.list-inline.pull-left
+            li
+              a.btn.btn-default(href=`/simplonBook/books/edit/${book.id}`)
+                i.fa.fa-pencil
+                span EDIT
+            li
+              a.btn.btn-default(href=`/simplonBook/books/delete/${book.id}`)
+                i.fa.fa-trash
+                span DELETE
+
+    

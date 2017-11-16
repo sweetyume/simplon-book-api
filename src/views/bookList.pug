@@ -1,0 +1,28 @@
+extends layout
+block content
+  div.container
+    div#home.row
+      div.col-xs-12
+      h1 All books
+      each book in books
+        div.product-card
+          a(href=`books/${book.id}`)
+            div.product-card-image
+              img(src=book.image, width='80', height='80')
+            div.product-card-body
+              h3 #{ book.titre }
+              span #{ book.auteur }
+              span #{ book.annee_de_publication }
+              span #{ book.pages }
+              span #{ book.date_de_creation }
+          ul.product-card-controls.list-inline
+            li
+              a.btn.btn-default(href=`${book.url}`)
+                i.fa.fa-share-square-o
+            li
+              a.btn.btn-default(href=`/simplonBook/books/edit/${book.id}`)
+                i.fa.fa-pencil
+            li
+              a.btn.btn-default(href=`/simplonBook/books/delete/${book.id}`)
+                i.fa.fa-trash
+
