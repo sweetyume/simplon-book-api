@@ -4,7 +4,7 @@ block content
     div.row
       div.col-xs-12
         h1 Ajouter un livre
-        form.form-group(action='/add', method = 'POST', enctype='multipart/form-data')
+        form.form-group(action='/simplonBook/add', method = 'POST', enctype='multipart/form-data')
           div.form-group
             label.control-label Titre
             input.form-control(type='text', name='titre')
@@ -15,19 +15,19 @@ block content
             label.control-label Année de publication
             input.form-control(type='text', name='annee_de_publication')
           div.form-group
-            label.control-label Couverture
-            input(type = "file", name= "image")
-          div.form-group
             label.control-label Pages
-            input(type = "text", name= "pages")
+            input.form-control(type = "text", name= "pages")
           div.form-group
             label.control-label Date de création
-            input(type = "text", name= "date_de_creation")
+            input.form-control(type = "text", name= "date_de_creation")
+          //- div.form-group
+          //-   label.control-label Couverture
+          //-   input(type = "file", name= "image")
           ul.list-inline
-            li
+            li(ahref='simplonBook/add')
               button.btn.btn-danger(type='submit') Add
             li
-              a(href='simplonBook/add')
+              a(href='simplonBook/books')
                 button.btn.btn-add(type='submit') Cancel
 
 

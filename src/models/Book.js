@@ -7,7 +7,7 @@ let newBook = new Schema({
     "annee_de_publication": { type: String, required: true },
     "pages": { type: Number, required: true},
     "date_de_creation": { type: String, required: true },
-    "image": { type: String },
+    // "image": { type: String },
 
 }, { versionKey: false });
 

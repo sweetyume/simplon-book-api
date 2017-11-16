@@ -6,9 +6,9 @@ block content
       h1 All books
       each book in books
         div.product-card
-          a(href=`books/${book.id}`)
+          a(href=`simplonBook/books/${book.id}`)
             div.product-card-image
-              img(src=book.image, width='80', height='80')
+              //- img(src=book.image, width='80', height='80')
             div.product-card-body
               h3 #{ book.titre }
               span #{ book.auteur }
