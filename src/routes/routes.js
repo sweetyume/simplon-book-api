@@ -18,7 +18,7 @@ router.post('/add', (req, res) => {
         if (err) {
             res.send(err);
         }
-        res.json({ "message": `${book.name} a été ajouté` })
+        res.json({ "message": `${book.titre} a été ajouté` })
     });
 });
 

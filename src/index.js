@@ -10,6 +10,7 @@ mongoose.connect(config.mongoUrl, () => {
 
 const app = express();
 
+app.use(express.urlencoded({ extended: false }));
 app.use('/simplonBook', router);
 
 app.listen(config.port, () => {

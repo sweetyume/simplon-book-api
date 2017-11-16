@@ -6,7 +6,9 @@ let newBook = new Schema({
     "auteur": { type: String, required: true },
     "année_de_publication": { type: String, required: true },
     "pages": { type: Number, required: true},
-    "date_de_création": { type: String, required: true }
-});
+    "date_de_création": { type: String, required: true },
+
+}, { versionKey: false });
 
 
+module.exports = mongoose.model('Book', newBook);
