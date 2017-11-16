@@ -43,17 +43,29 @@ router.get('/books/:id', (req, res) => {
 });
 
 // POST
-// éditer un livre
+// éditer un livre par son id
 // route 'localhost:${config.port}/simplonBook/books/edit/:id'
 router.post('/books/edit/:id', (req, res) => {
     Book.findByIdAndUpdate( req.params.id, req.body, (err, updatedBook) => {
         if (err) {
             res.send(err);
         }
-        res.json({ "message": `${book.titre} a été modifié` })
+        res.json({ "message": `${updatedBook.titre} a été modifié` })
     });
 });
 
+// DELETE
+// supprimer un livre par son id
+// route 'localhost:${config.port}/simplonBook/books/delete/:id'
+router.delete('/books/delete/:id', (req, res) => {
+    Book.findByIdAndRemove( req.params.id, (err, deletedBook) => {
+        if (err) {
+            res.send(err);
+        }
+        res.json({ "message": `${deletedBook.titre} a été supprimé` })
+
+    });
+});
 
 
 
