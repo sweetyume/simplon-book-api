@@ -42,10 +42,10 @@ router.get('/books/:id', (req, res) => {
     })
 });
 
-// POST
+// PUT
 // éditer un livre par son id
 // route 'localhost:${config.port}/simplonBook/books/edit/:id'
-router.post('/books/edit/:id', (req, res) => {
+router.put('/books/edit/:id', (req, res) => {
     Book.findByIdAndUpdate( req.params.id, req.body, (err, updatedBook) => {
         if (err) {
             res.send(err);
