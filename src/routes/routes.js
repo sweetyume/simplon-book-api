@@ -42,7 +42,7 @@ router.post('/add', upload.single('image'), (req, res) => {
 
 // GET
 // voir tous les livres
-// route 'localhost:${config.port}/simplonBook/books'
+// route 'localhost:${config.port}/simplonBook'
 router.get('/', (req, res) => {
     Book.find((err, books) => {
         if (err) {
@@ -71,15 +71,15 @@ router.get('/books/:id', (req, res) => {
 // éditer un livre par son id
 // route 'localhost:${config.port}/simplonBook/books/edit/:id'
 router.get('/books/edit/:id', (request, response) => {
-    Book.findByIdAndUpdate(request.params.id, request.body, (error, book) => {
+    Book.findById(request.params.id, (error, book) => {
         if (error) {
             response.send(error);
         }
-        response.render('edit_book', { book });
+        response.render('edit_book_b', { book });
     });
 });
 router.post('/books/edit/:id', (req, res) => {
-    Book.findByIdAndUpdate( req.params.id, req.body, (err) => {
+    Book.findByIdAndUpdate( req.params.id, req.body, (err, updatedBook) => {
         if (err) {
             res.send(err);
         }
@@ -87,7 +87,6 @@ router.post('/books/edit/:id', (req, res) => {
         // res.json({ "message": `${updatedBook.titre} a été modifié` })
     });
 });
-
 
 // DELETE
 // supprimer un livre par son id

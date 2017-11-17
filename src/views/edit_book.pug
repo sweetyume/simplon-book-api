@@ -24,13 +24,16 @@ block content
           //-   label.control-label Couverture
           //-   input(type = "file", name= "image")
           ul.list-inline
-            li(ahref=`simplonBook/edit/books/${book.id}`)
-              button.btn.btn-danger(type='submit') Edit
+            li(ahref=`/simplonBook/books/edit/${book.id}`)
+              button.btn.btn-danger(type='submit') Add
             li
-              a(href='simplonBook/books')
-                button.btn.btn-warning(type='submit') Cancel
-
-
+              a.btn.btn-warning(href = '/simplonBook') CANCEL
+          //- ul.list-inline
+          //-   li(ahref=`simplonBook/edit/books/${book.id}`)
+          //-     button.btn.btn-danger(type='submit') Edit
+          //-   li
+          //-     a(href='simplonBook/books')
+          //-       button.btn.btn-warning(type='submit') Cancel
 
 
 
