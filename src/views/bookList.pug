@@ -12,9 +12,7 @@ block content
             div.product-card-body
               h3 #{ book.titre }
               span #{ book.auteur }
-              span #{ book.annee_de_publication }
-              span #{ book.pages }
-              span #{ book.date_de_creation }
+              p #{ book.annee_de_publication }
           ul.product-card-controls.list-inline
             li
               a.btn.btn-default(href=`${book.url}`)
