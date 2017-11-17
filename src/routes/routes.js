@@ -75,7 +75,7 @@ router.get('/books/edit/:id', (request, response) => {
         if (error) {
             response.send(error);
         }
-        response.render('edit_book_b', { book });
+        response.render('edit_book', { book });
     });
 });
 router.post('/books/edit/:id', (req, res) => {
