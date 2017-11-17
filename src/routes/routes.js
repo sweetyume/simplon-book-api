@@ -10,7 +10,7 @@ const router = express.Router();
 // où et comment les images/fichiers sont sauvegardés.
 const storage = multer.diskStorage({
     destination: (request, file, cb) => {
-        cb(null, path.resolve('public', 'uploads'));
+        cb(null, path.resolve('src', 'public', 'uploads'));
     },
     filename: (request, file, cb) => {
         cb(null, file.originalname);
@@ -28,7 +28,7 @@ router.get('/add', (request, response) => {
 router.post('/add', upload.single('image'), (req, res) => {
     const newBook = new Book(req.body);
     console.log(req.file);
-    // newBook.image = "uploads/" + req.file.filename;
+    newBook.image = "uploads/" + req.file.filename;
 
     newBook.save((err, book) => {
         if (err) {
@@ -78,7 +78,7 @@ router.get('/books/edit/:id', (request, response) => {
         response.render('edit_book', { book });
     });
 });
-router.post('/books/edit/:id', (req, res) => {
+router.post('/books/edit/:id', upload.single('image'), (req, res) => {
     Book.findByIdAndUpdate( req.params.id, req.body, (err, updatedBook) => {
         if (err) {
             res.send(err);
@@ -87,6 +87,7 @@ router.post('/books/edit/:id', (req, res) => {
         // res.json({ "message": `${updatedBook.titre} a été modifié` })
     });
 });
+
 
 // DELETE
 // supprimer un livre par son id
